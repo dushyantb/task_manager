@@ -5,7 +5,7 @@
   "main": "src/app.ts",
   "scripts": {
     "setupDB": "ts-node -e \"import setup from './src/db/setup'; setup.setupDB()\"",
-    "tearDoenDB": "ts-node -e \"import setup from './src/db/setup'; setup.tearDownDB()\"",
+    "tearDownDB": "ts-node -e \"import setup from './src/db/setup'; setup.tearDownDB()\"",
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/app.ts",
     "build": "npx tsc",
     "start": "node dist/server.js",
