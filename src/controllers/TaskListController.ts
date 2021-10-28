@@ -1,0 +1,81 @@
+import * as TaskListService from "../services/TaskListService"
+
+async function getTaskLists(req, res) {
+  let result: any = await TaskListService.getTaskLists();
+
+  if(result.status == "error") {
+    res.status(401).send(result.message);
+  } else {
+    res.send(result);
+  }
+}
+
+async function getTaskListById(req, res) {
+  let result = await TaskListService.getTaskListById(req.params)
+
+  if(result.status == "error") {
+    res.status(401).send(result.message);
+  } else {
+    res.send(result);
+  }
+}
+
+async function createTaskList(req, res) {
+  let result = await TaskListService.createTaskList(req.body);
+
+  if(result.status == "error") {
+    res.status(400).send(result.message);
+  } else {
+    res.send(result);
+  }
+}
+
+async function upateTaskList(req, res) {
+  let result = await TaskListService.upateTaskList(req.params, req.body);
+
+  if(result.status == "error") {
+    res.status(400).send(result.message);
+  } else {
+    res.send(result);
+  }
+}
+
+async function deleteTaskList(req, res) {
+  let result = await TaskListService.deleteTaskList(req.params);
+
+  if(result.status == "error") {
+    res.status(400).send(result.message);
+  } else {
+    res.send(result);
+  }
+}
+
+async function addTasksToList(req, res) {
+  let result = await TaskListService.addTasksToList(req.params, req.body);
+
+  if(result.status == "error") {
+    res.status(400).send(result.message);
+  } else {
+    res.send(result);
+  }
+}
+
+async function removeTasksFromList(req, res) {
+  let result = await TaskListService.removeTasksFromList(req.params, req.body);
+
+  if(result.status == "error") {
+    res.status(400).send(result.message);
+  } else {
+    res.send(result);
+  }
+}
+
+export {
+  getTaskLists,
+  getTaskListById,
+  createTaskList,
+  upateTaskList,
+  deleteTaskList,
+  addTasksToList,
+  removeTasksFromList
+}

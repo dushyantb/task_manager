@@ -1,9 +1,5 @@
 import pool from "./connection";
 
-// pool.on("connect", () => {
-//   console.log("DB Connected");
-// })
-
 async function setupDB() {
   const client = await pool.connect();
   try {
